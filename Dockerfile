@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:20.10
 MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
 RUN apt update -y --fix-missing
 RUN apt install -y software-properties-common apt-transport-https python3 awscli curl sudo gnupg mysql-client dnsutils wget
