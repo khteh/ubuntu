@@ -1,5 +1,6 @@
 FROM ubuntu:20.10
 MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
 RUN apt install -y software-properties-common apt-transport-https python3 awscli curl sudo gnupg mysql-client dnsutils wget
 RUN add-apt-repository ppa:linuxuprising/java
