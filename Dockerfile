@@ -1,4 +1,4 @@
-FROM ubuntu:20.10
+FROM ubuntu:21.04
 MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
