@@ -4,6 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
 RUN apt install -y software-properties-common apt-transport-https python3 awscli curl sudo gnupg mysql-client dnsutils wget
 RUN add-apt-repository ppa:linuxuprising/java
+RUN apt update -y
 RUN echo oracle-java15-installer shared/accepted-oracle-license-v1-2 select true | sudo /usr/bin/debconf-set-selections
 RUN apt install -y oracle-java15-installer
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
