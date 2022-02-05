@@ -2,7 +2,7 @@ FROM ubuntu:21.10
 MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
-RUN apt install -y software-properties-common apt-transport-https python3 awscli curl sudo gnupg mysql-client dnsutils wget
+RUN apt install -y software-properties-common apt-transport-https python3 awscli curl sudo gnupg mysql-client dnsutils wget git
 RUN add-apt-repository ppa:linuxuprising/java
 RUN apt update -y
 RUN echo oracle-java17-installer shared/accepted-oracle-license-v1-3 select true | sudo /usr/bin/debconf-set-selections
