@@ -15,5 +15,6 @@ RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes
 RUN chmod +x /usr/local/bin/kubectl
 #https://www.rabbitmq.com/management-cli.html to find out the latest version
 RUN wget -q https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/v3.9.15/deps/rabbitmq_management/bin/rabbitmqadmin -o /usr/local/bin/rabbitmqadmin
+RUN apt install -y golang-go
 #ENTRYPOINT ["bash"]
 CMD ["/bin/bash"]
