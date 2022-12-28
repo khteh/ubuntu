@@ -12,5 +12,9 @@ RUN chmod +x /usr/local/bin/kubectl
 #https://www.rabbitmq.com/management-cli.html to find out the latest version
 RUN wget -q https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/v3.11.2/deps/rabbitmq_management/bin/rabbitmqadmin -o /usr/local/bin/rabbitmqadmin
 RUN apt install -y golang-go redis-tools
+ENV VER="20.10.9"
+RUN curl -sL -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
+RUN tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+RUN mv /tmp/docker/* /usr/bin
 #ENTRYPOINT ["bash"]
 CMD ["/bin/bash"]
