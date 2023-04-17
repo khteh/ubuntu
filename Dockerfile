@@ -3,6 +3,10 @@ MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
 RUN apt install -y software-properties-common apt-transport-https python3 awscli curl sudo gnupg mysql-client dnsutils wget git
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt kinetic-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+RUN apt update -y --fix-missing
+RUN apt install -y postgresql-client
 RUN wget -q https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.deb
 RUN apt -qqy install ./jdk-19_linux-x64_bin.deb
 RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-19/bin/java 1919
