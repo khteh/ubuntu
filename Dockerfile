@@ -9,6 +9,7 @@ RUN apt update -y --fix-missing
 RUN apt install -y postgresql-client
 RUN wget -q https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.deb
 RUN apt -qqy install ./jdk-19_linux-x64_bin.deb
+RUN rm -f jdk-19_linux-x64_bin.deb
 RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-19/bin/java 1919
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -24,5 +25,6 @@ RUN mv /tmp/docker/* /usr/local/bin
 ENV GRPCURL_VER="1.8.7"
 RUN wget -q https://github.com/fullstorydev/grpcurl/releases/download/v$GRPCURL_VER/grpcurl_${GRPCURL_VER}_linux_x86_64.tar.gz
 RUN tar -xvf grpcurl_${GRPCURL_VER}_linux_x86_64.tar.gz -C /usr/local/bin
+RUN rm -f grpcurl_${GRPCURL_VER}_linux_x86_64.tar.gz
 #ENTRYPOINT ["bash"]
 CMD ["/bin/bash"]
