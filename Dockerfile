@@ -9,10 +9,10 @@ RUN wget -q -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-k
 RUN apt update -y --fix-missing
 RUN apt upgrade -y
 RUN apt install -y postgresql-client
-RUN wget -q https://download.oracle.com/java/20/latest/jdk-20_linux-x64_bin.deb
-RUN apt -qqy install ./jdk-20_linux-x64_bin.deb
-RUN rm -f jdk-20_linux-x64_bin.deb
-RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-20/bin/java 2020
+RUN wget -q https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+RUN apt -qqy install ./jdk-21_linux-x64_bin.deb
+RUN rm -f jdk-21_linux-x64_bin.deb
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-21-oracle-x64/bin/java 2121
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 RUN chmod +x /usr/local/bin/kubectl
