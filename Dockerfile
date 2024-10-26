@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:24.10
 MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
@@ -9,10 +9,10 @@ RUN wget -q -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-k
 RUN apt update -y --fix-missing
 RUN apt upgrade -y
 RUN apt install -y postgresql-client
-RUN wget -q https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.deb
-RUN apt -qqy install ./jdk-22_linux-x64_bin.deb
-RUN rm -f jdk-22_linux-x64_bin.deb
-RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-22-oracle-x64/bin/java 2222
+RUN wget -q https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.deb
+RUN apt -qqy install ./jdk-23_linux-x64_bin.deb
+RUN rm -f jdk-23_linux-x64_bin.deb
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java 2323
 RUN curl -sL -o /tmp/awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
 RUN unzip /tmp/awscliv2.zip -d /tmp
 RUN /tmp/aws/install
@@ -20,11 +20,11 @@ RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key
 RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 RUN chmod +x /usr/local/bin/kubectl
 #https://www.rabbitmq.com/management-cli.html to find out the latest version
-ENV RABBITMQ_VER="3.13.2"
+ENV RABBITMQ_VER="4.0.2"
 RUN wget -q https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/v$RABBITMQ_VER/deps/rabbitmq_management/bin/rabbitmqadmin -O /usr/local/bin/rabbitmqadmin
 RUN chmod +x /usr/local/bin/rabbitmqadmin
 RUN apt install -y golang-go redis-tools
-ENV DOCKER_CLIENT_VER 26.1.3
+ENV DOCKER_CLIENT_VER 27.3.1
 RUN curl -sL -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_CLIENT_VER.tgz
 RUN tar -xz -C /tmp -f /tmp/docker-$VER.tgz
 RUN mv /tmp/docker/* /usr/local/bin
