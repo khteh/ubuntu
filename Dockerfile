@@ -12,7 +12,7 @@ RUN apt install -y postgresql-client
 RUN wget -q https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.deb
 RUN apt -qqy install ./jdk-23_linux-x64_bin.deb
 RUN rm -f jdk-23_linux-x64_bin.deb
-RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java 2323
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-23.0.2-oracle-x64/bin/java 2323
 RUN curl -sL -o /tmp/awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
 RUN unzip /tmp/awscliv2.zip -d /tmp
 RUN /tmp/aws/install
