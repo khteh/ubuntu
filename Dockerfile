@@ -28,6 +28,10 @@ ENV DOCKER_CLIENT_VER 27.3.1
 RUN curl -sL -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_CLIENT_VER.tgz
 RUN tar -xz -C /tmp -f /tmp/docker-$VER.tgz
 RUN mv /tmp/docker/* /usr/local/bin
+RUN curl -sL -o /tmp/gcloud.tgz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
+RUN tar -xf /tmp/gcloud.tgz
+RUN ./google-cloud-sdk/install.sh -q
+RUN rm -f /tmp/gcloud.tgz
 #https://github.com/fullstorydev/grpcurl/releases
 ENV GRPCURL_VER="1.9.1"
 RUN wget -q https://github.com/fullstorydev/grpcurl/releases/download/v$GRPCURL_VER/grpcurl_${GRPCURL_VER}_linux_x86_64.tar.gz
