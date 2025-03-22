@@ -3,7 +3,7 @@ MAINTAINER Kok How, Teh <funcoolgeeek@gmail.com>
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y --fix-missing
 RUN apt upgrade -y
-RUN apt install -y software-properties-common apt-transport-https curl sudo gnupg mysql-client dnsutils wget git nodejs npm python3 python3-pip pipenv unzip
+RUN apt install -y software-properties-common apt-transport-https curl sudo gnupg pipenv unzip mysql-client dnsutils wget git nodejs npm python3 python3-pip python3-tk
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 RUN wget -q -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 RUN apt update -y --fix-missing
